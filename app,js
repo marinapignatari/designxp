@@ -1,0 +1,29 @@
+window.addEventListener('DOMContentLoaded', () => {
+    if (window.Canva) {
+        Canva.init({
+            apiKey: 'YOUR_CANVA_API_KEY',
+            title: 'XP Design Automation',
+            description: 'Automating designs for XP',
+            onReady: () => {
+                document.getElementById('insertText').addEventListener('click', () => {
+                    Canva.editor.insertText({
+                        text: 'Texto automático do XP!',
+                        fontSize: 24,
+                        fontFamily: 'Arial',
+                        color: '#000000'
+                    });
+                });
+
+                document.getElementById('insertImage').addEventListener('click', () => {
+                    Canva.editor.insertImage({
+                        src: 'https://via.placeholder.com/150',
+                        width: 150,
+                        height: 150
+                    });
+                });
+            }
+        });
+    } else {
+        console.error('Canva SDK not loaded');
+    }
+});
